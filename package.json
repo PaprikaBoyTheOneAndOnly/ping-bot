@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/intex.ts",
+    "start": "nodemon src/index.ts",
     "linter": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/"
   },
   "author": "",
