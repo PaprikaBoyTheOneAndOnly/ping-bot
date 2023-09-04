@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon src/index.ts",
+    "build": "tsc --build",
     "linter": "eslint --ext .js --ext .jsx --ext .ts --ext .tsx src/"
   },
   "author": "",
