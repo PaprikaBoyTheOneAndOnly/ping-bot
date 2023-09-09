@@ -10,6 +10,9 @@ setUpSubscriptions();
 bootstrap()
   .then(() => log('Application is ready to go!'))
   .catch(e => {
+    console.error('Error on startup', process.env.TOKEN);
+    console.error(e);
+
     log('Error on startup');
     log(e);
   });
