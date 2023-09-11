@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const LOG_FILE = './.log';
+const LOG_FILE = `${process.env.CONFIG_PATH}/.log`;
 const DateTimeFormatter = Intl.DateTimeFormat('de-CH', { dateStyle: 'medium', timeStyle: 'medium' });
 
 export function log(message: string) {

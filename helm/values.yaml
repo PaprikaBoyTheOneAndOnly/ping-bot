@@ -1,2 +1,4 @@
 namespace: ping-bot
 image: hasli01/ping-bot:v1.0.0
+
+configLocation: /etc/app-config

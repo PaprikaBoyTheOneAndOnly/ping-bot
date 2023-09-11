@@ -1,8 +1,15 @@
 # Ping Bot
 
+Discord-Bot will notify subscribed user, who is not yet in a chat, when another user is joining a chat.
+
+Commands:
+
+- `/subscribe`: Subscribe to notifications
+- `/unsubscribe`: Unsubscribe to notifications
+
 ## Setup
 
-Create secret 
+Create secret
 
 ```yaml
 kind: Secret

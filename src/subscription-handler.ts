@@ -1,6 +1,6 @@
 import * as fs from 'fs';
 
-const SUBSCRIPTION_FILE = '.subscriptions.json';
+const SUBSCRIPTION_FILE = `${process.env.CONFIG_PATH}/.subscriptions.json`;
 
 export function setUpSubscriptions() {
   if (!fs.existsSync(SUBSCRIPTION_FILE)) {
