@@ -1,5 +1,23 @@
 # Ping Bot
 
+## Setup
+
+Create secret 
+
+```yaml
+kind: Secret
+apiVersion: v1
+metadata:
+  name: ping-bot
+  namespace: ping-bot
+  labels:
+    app.kubernetes.io/part-of: ping-bot
+    app.kubernetes.io/name: ping-bot
+type: Opaque
+data:
+  TOKEN: '<token-base-base64>'
+```
+
 ## Scripts
 
 ### Docker
@@ -7,13 +25,7 @@
 Build docker image
 
 ```bash
-docker build -f docker/Dockerfile . --no-cache -t ping-bot:v1.0.0
-```
-
-Tag image
-
-```bash
-docker tag ping-bot:v1.0.0 hasli01/ping-bot:v1.0.0
+docker build -f docker/Dockerfile . --no-cache -t hasli01/ping-bot:v1.0.0
 ```
 
 Upload image to registry
@@ -25,9 +37,5 @@ docker push hasli01/ping-bot:v1.0.0
 ### Helm
 
 ```bash
-helm install ping-bot ./helm
-```
-
-```bash
-helm upgrade ping-bot ./helm
+helm upgrade --install ping-bot ./helm
 ```
