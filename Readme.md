@@ -37,13 +37,13 @@ data:
 Build docker image
 
 ```bash
-docker build -f docker/Dockerfile . --no-cache -t hasli01/ping-bot:v1.0.0
+docker build -f docker/Dockerfile . --no-cache -t hasli01/ping-bot:<version>
 ```
 
 Upload image to registry
 
 ```bash
-docker push hasli01/ping-bot:v1.0.0
+docker push hasli01/ping-bot:<version>
 ```
 
 ### Helm
