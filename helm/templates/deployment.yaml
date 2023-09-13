@@ -32,6 +32,8 @@ spec:
           env:
             - name: CONFIG_PATH
               value: {{ .Values.configLocation }}
+            - name: TZ
+              value: 'Europe/Zurich'
           volumeMounts:
             - mountPath: {{ .Values.configLocation }}
               name: config
