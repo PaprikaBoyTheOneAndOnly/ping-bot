@@ -6,8 +6,8 @@
     "sourceMap": true,
     "target": "ESNext",
     "outDir": "build",
-    "moduleResolution": "nodenext",
-    "module": "NodeNext"
+    "moduleResolution": "node",
+    "module": "CommonJS"
   },
   "include": [
     "src/**/*"

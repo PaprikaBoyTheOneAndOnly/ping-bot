@@ -1,4 +1,4 @@
-import { Events } from 'discord.js';
+import { Events, GuildMember } from 'discord.js';
 import { createClient } from './discord-client';
 import { log } from './logger';
 import { readSubscriptions, subscribe, unsubscribe } from './subscription-handler';
@@ -53,16 +53,24 @@ export async function bootstrap() {
 
   function sendMessageToUser(userId: string, message: string) {
     client.users.fetch(userId, { force: false }).then(user => {
-      if (!hasUserJoinedVoice(userId)) {
+      const userInfo = getUserInfo(userId);
+
+      if (!hasUserJoinedVoice(userInfo) && isUserOnline(userInfo)) {
         user.send(message).then(() => log(`Message sent to ${user.username}`));
       }
     });
   }
 
-  function hasUserJoinedVoice(userId: string) {
+  function getUserInfo(userId: string): GuildMember {
     const guild = client.guilds.cache.find(guild => guild.members.cache.has(userId));
-    const member = guild?.members.cache.get(userId);
+    return guild?.members.cache.get(userId);
+  }
 
-    return !!member?.voice.channel;
+  function hasUserJoinedVoice(user: GuildMember): boolean {
+    return !!user?.voice.channel;
+  }
+
+  function isUserOnline(user: GuildMember): boolean {
+    return user?.presence.status !== 'offline';
   }
 }

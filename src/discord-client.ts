@@ -8,6 +8,7 @@ export async function createClient() {
       GatewayIntentBits.GuildVoiceStates,
       GatewayIntentBits.GuildMessages,
       GatewayIntentBits.MessageContent,
+      GatewayIntentBits.GuildPresences,
     ],
   });
 

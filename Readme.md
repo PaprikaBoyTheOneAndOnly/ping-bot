@@ -7,6 +7,11 @@ Commands:
 - `/subscribe`: Subscribe to notifications
 - `/unsubscribe`: Unsubscribe to notifications
 
+## Environment variables
+
+`TOKEN`: Secret token for Bot to connect to discord server
+`CONFIG_PATH`: Path where config files are located
+
 ## Setup
 
 Create secret

@@ -4,6 +4,10 @@ import { log } from './logger';
 import { setUpSubscriptions } from './subscription-handler';
 
 dotenv.config();
+dotenv.populate(process.env, {
+  SUBSCRIPTION_CONFIG_FILE: `${process.env.CONFIG_PATH}/.subscriptions.json`,
+  LOG_FILE: `${process.env.CONFIG_PATH}/.log`,
+} as Partial<NodeJS.ProcessEnv>);
 
 setUpSubscriptions();
 
