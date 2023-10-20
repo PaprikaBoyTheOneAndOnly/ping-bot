@@ -6,8 +6,8 @@ import { readSubscriptions, subscribe, unsubscribe } from './subscription-handle
 export async function bootstrap() {
   const client = await createClient();
 
-  client.on(Events.VoiceStateUpdate, (_, newState) => {
-    if (newState.channelId) {
+  client.on(Events.VoiceStateUpdate, (oldState, newState) => {
+    if (oldState?.channelId !== newState?.channelId) {
       const userId = newState.member?.id;
 
       if (!userId) {
